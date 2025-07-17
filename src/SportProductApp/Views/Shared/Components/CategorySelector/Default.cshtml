@@ -1,0 +1,9 @@
+﻿@model IEnumerable<Microsoft.AspNetCore.Mvc.Rendering.SelectListItem>
+
+<select name="Category" class="form-select" required>
+    <option value="">-- Chọn loại sản phẩm --</option>
+    @foreach (var item in Model)
+    {
+        <option value="@item.Value" selected="@item.Selected">@item.Text</option>
+    }
+</select>

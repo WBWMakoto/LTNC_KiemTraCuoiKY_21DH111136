@@ -1,0 +1,95 @@
+﻿@model SportProductApp.Models.Product
+
+@{
+    ViewData["Title"] = "Chỉnh sửa sản phẩm";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <div class="card shadow-lg">
+                <div class="card-header bg-warning text-dark">
+                    <h2 class="mb-0">
+                        <i class="fas fa-edit me-2"></i>
+                        Chỉnh sửa sản phẩm
+                    </h2>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Edit" method="post">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                        <input type="hidden" asp-for="ProductID" />
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label asp-for="NamePro" class="form-label fw-bold">
+                                        <i class="fas fa-shopping-bag me-2"></i>@Html.DisplayNameFor(model => model.NamePro)
+                                    </label>
+                                    <input asp-for="NamePro" class="form-control" placeholder="Nhập tên sản phẩm" />
+                                    <span asp-validation-for="NamePro" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label asp-for="Price" class="form-label fw-bold">
+                                        <i class="fas fa-dollar-sign me-2"></i>@Html.DisplayNameFor(model => model.Price)
+                                    </label>
+                                    <input asp-for="Price" class="form-control" placeholder="Nhập giá sản phẩm" />
+                                    <span asp-validation-for="Price" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="form-label fw-bold">
+                                <i class="fas fa-list me-2"></i>@Html.DisplayNameFor(model => model.Category)
+                            </label>
+                            @await Component.InvokeAsync("CategorySelector", new { selectedCategory = Model.Category })
+                            <span asp-validation-for="Category" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="ManufacturingDate" class="form-label fw-bold">
+                                <i class="fas fa-calendar me-2"></i>@Html.DisplayNameFor(model => model.ManufacturingDate)
+                            </label>
+                            <input asp-for="ManufacturingDate" type="date" class="form-control" />
+                            <span asp-validation-for="ManufacturingDate" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="ImagePro" class="form-label fw-bold">
+                                <i class="fas fa-image me-2"></i>@Html.DisplayNameFor(model => model.ImagePro)
+                            </label>
+                            <input asp-for="ImagePro" class="form-control" placeholder="Nhập URL hình ảnh" />
+                            <span asp-validation-for="ImagePro" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="DecriptionPro" class="form-label fw-bold">
+                                <i class="fas fa-info-circle me-2"></i>@Html.DisplayNameFor(model => model.DecriptionPro)
+                            </label>
+                            <textarea asp-for="DecriptionPro" class="form-control" rows="4" placeholder="Nhập mô tả sản phẩm"></textarea>
+                            <span asp-validation-for="DecriptionPro" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group text-end">
+                            <a asp-action="Details" class="btn btn-secondary me-2">
+                                <i class="fas fa-arrow-left me-2"></i>Quay lại
+                            </a>
+                            <button type="submit" class="btn btn-success">
+                                <i class="fas fa-save me-2"></i>Lưu thay đổi
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
