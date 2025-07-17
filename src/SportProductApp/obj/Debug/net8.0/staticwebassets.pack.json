@@ -245,6 +245,14 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
+      "Id": "D:\\Downloads\\CuoiKY-LTNC\\src\\SportProductApp\\wwwroot\\uploads\\ace26a67-560e-4a1f-8c43-5b8dbf0c63b2_vot_caulong_vragon_kamito_3_0005cae2c670407bba287a4087d28398_master.jpg",
+      "PackagePath": "staticwebassets\\uploads\\ace26a67-560e-4a1f-8c43-5b8dbf0c63b2_vot_caulong_vragon_kamito_3_0005cae2c670407bba287a4087d28398_master.jpg"
+    },
+    {
+      "Id": "D:\\Downloads\\CuoiKY-LTNC\\src\\SportProductApp\\wwwroot\\uploads\\fd13b091-78d0-4928-b76a-6464b8c4a45e_0643-trai-banh-da-bong-official-so-4-va-so-5.jpg",
+      "PackagePath": "staticwebassets\\uploads\\fd13b091-78d0-4928-b76a-6464b8c4a45e_0643-trai-banh-da-bong-official-so-4-va-so-5.jpg"
+    },
+    {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.SportProductApp.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },

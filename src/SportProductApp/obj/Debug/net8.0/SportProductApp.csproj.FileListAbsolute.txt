@@ -166,3 +166,4 @@ D:\Downloads\CuoiKY-LTNC\src\SportProductApp\obj\Debug\net8.0\refint\SportProduc
 D:\Downloads\CuoiKY-LTNC\src\SportProductApp\obj\Debug\net8.0\SportProductApp.pdb
 D:\Downloads\CuoiKY-LTNC\src\SportProductApp\obj\Debug\net8.0\SportProductApp.genruntimeconfig.cache
 D:\Downloads\CuoiKY-LTNC\src\SportProductApp\obj\Debug\net8.0\ref\SportProductApp.dll
+D:\Downloads\CuoiKY-LTNC\src\SportProductApp\obj\Debug\net8.0\SportProductApp.sourcelink.json

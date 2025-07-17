@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "IHPhl/D7iTS4/TmmgYWspiInROI1XL6T+s8JtcjS2SE=",
+  "Hash": "Zwbid1Q6MI06Hu3ZjIjuVlv8EUK30WyEToXz9K4y6SU=",
   "Source": "SportProductApp",
   "BasePath": "_content/SportProductApp",
   "Mode": "Default",
@@ -1193,6 +1193,44 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "D:\\Downloads\\CuoiKY-LTNC\\src\\SportProductApp\\wwwroot\\uploads\\ace26a67-560e-4a1f-8c43-5b8dbf0c63b2_vot_caulong_vragon_kamito_3_0005cae2c670407bba287a4087d28398_master.jpg",
+      "SourceId": "SportProductApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Downloads\\CuoiKY-LTNC\\src\\SportProductApp\\wwwroot\\",
+      "BasePath": "_content/SportProductApp",
+      "RelativePath": "uploads/ace26a67-560e-4a1f-8c43-5b8dbf0c63b2_vot_caulong_vragon_kamito_3_0005cae2c670407bba287a4087d28398_master.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\ace26a67-560e-4a1f-8c43-5b8dbf0c63b2_vot_caulong_vragon_kamito_3_0005cae2c670407bba287a4087d28398_master.jpg"
+    },
+    {
+      "Identity": "D:\\Downloads\\CuoiKY-LTNC\\src\\SportProductApp\\wwwroot\\uploads\\fd13b091-78d0-4928-b76a-6464b8c4a45e_0643-trai-banh-da-bong-official-so-4-va-so-5.jpg",
+      "SourceId": "SportProductApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Downloads\\CuoiKY-LTNC\\src\\SportProductApp\\wwwroot\\",
+      "BasePath": "_content/SportProductApp",
+      "RelativePath": "uploads/fd13b091-78d0-4928-b76a-6464b8c4a45e_0643-trai-banh-da-bong-official-so-4-va-so-5.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\fd13b091-78d0-4928-b76a-6464b8c4a45e_0643-trai-banh-da-bong-official-so-4-va-so-5.jpg"
     }
   ]
 }

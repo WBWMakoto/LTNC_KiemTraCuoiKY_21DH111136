@@ -28,12 +28,17 @@
                         <div class="col-md-4">
                             @if (!string.IsNullOrEmpty(Model.ImagePro))
                             {
-                                <img src="@Model.ImagePro" class="img-fluid rounded shadow" alt="@Model.NamePro" />
+                                <img src="@Model.ImagePro" class="img-fluid rounded shadow" alt="@Model.NamePro"
+                                     style="max-height: 300px; object-fit: cover; width: 100%;"
+                                     onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik04NyA3NEg5M1Y4MEg4N1Y3NFoiIGZpbGw9IiM5Q0EzQUYiLz4KPHBhdGggZD0iTTEwNyA5NEg5M1YxMDBIMTA3Vjk0WiIgZmlsbD0iIzlDQTNBRiIvPgo8cGF0aCBkPSJNMTEzIDEwNEgxMDdWMTEwSDExM1YxMDRaIiBmaWxsPSIjOUNBM0FGIi8+CjxwYXRoIGQ9Ik0xMjMgMTE0SDExM1YxMjBIMTIzVjExNFoiIGZpbGw9IiM5Q0EzQUYiLz4KPC9zdmc+'; this.style.backgroundColor='#f8f9fa';" />
                             }
                             else
                             {
                                 <div class="bg-light rounded d-flex align-items-center justify-content-center shadow" style="height: 200px;">
-                                    <i class="fas fa-image text-muted" style="font-size: 3rem;"></i>
+                                    <div class="text-center">
+                                        <i class="fas fa-image text-muted" style="font-size: 3rem;"></i>
+                                        <p class="text-muted mt-2 mb-0">Chưa có hình ảnh</p>
+                                    </div>
                                 </div>
                             }
                         </div>
@@ -76,7 +81,7 @@
                                     </tr>
                                 </tbody>
                             </table>
-                            
+
                             @if (!string.IsNullOrEmpty(Model.DecriptionPro))
                             {
                                 <div class="mt-3">

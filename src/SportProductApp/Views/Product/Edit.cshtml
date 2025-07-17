@@ -1,4 +1,4 @@
-﻿@model SportProductApp.Models.Product
+﻿@model SportProductApp.ViewModels.ProductEditViewModel
 
 @{
     ViewData["Title"] = "Chỉnh sửa sản phẩm";
@@ -15,10 +15,11 @@
                     </h2>
                 </div>
                 <div class="card-body">
-                    <form asp-action="Edit" method="post">
+                    <form asp-action="Edit" method="post" enctype="multipart/form-data">
                         <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
 
                         <input type="hidden" asp-for="ProductID" />
+                        <input type="hidden" asp-for="ImagePro" />
 
                         <div class="row">
                             <div class="col-md-6">
@@ -57,12 +58,55 @@
                             <span asp-validation-for="ManufacturingDate" class="text-danger"></span>
                         </div>
 
+                        <!-- Hình ảnh Section -->
                         <div class="form-group mb-3">
-                            <label asp-for="ImagePro" class="form-label fw-bold">
-                                <i class="fas fa-image me-2"></i>@Html.DisplayNameFor(model => model.ImagePro)
+                            <label class="form-label fw-bold">
+                                <i class="fas fa-image me-2"></i>Hình ảnh sản phẩm
                             </label>
-                            <input asp-for="ImagePro" class="form-control" placeholder="Nhập URL hình ảnh" />
-                            <span asp-validation-for="ImagePro" class="text-danger"></span>
+
+                            <!-- Hiển thị hình ảnh hiện tại -->
+                            @if (!string.IsNullOrEmpty(Model.ImagePro))
+                            {
+                                <div class="mb-3">
+                                    <div class="card" style="width: 200px;">
+                                        <img src="@Model.ImagePro" class="card-img-top" alt="Hình ảnh hiện tại" style="height: 150px; object-fit: cover;">
+                                        <div class="card-body">
+                                            <small class="text-muted">Hình ảnh hiện tại</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                            <!-- Radio buttons chọn cách nhập hình ảnh -->
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="ImageOption" value="upload" id="uploadOption"
+                                    @(Model.ImageOption == "upload" ? "checked" : "") onchange="toggleImageInput()">
+                                    <label class="form-check-label" for="uploadOption">
+                                        <i class="fas fa-upload me-2"></i>Upload file hình ảnh
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="ImageOption" value="url" id="urlOption"
+                                    @(Model.ImageOption == "url" ? "checked" : "") onchange="toggleImageInput()">
+                                    <label class="form-check-label" for="urlOption">
+                                        <i class="fas fa-link me-2"></i>Nhập URL hình ảnh
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Upload file input -->
+                            <div id="uploadDiv" style="display: @(Model.ImageOption == "upload" ? "block" : "none");">
+                                <input asp-for="ImageFile" type="file" class="form-control" accept="image/*" />
+                                <span asp-validation-for="ImageFile" class="text-danger"></span>
+                                <small class="form-text text-muted">Chấp nhận file: JPG, JPEG, PNG, GIF, BMP (tối đa 5MB)</small>
+                            </div>
+
+                            <!-- URL input -->
+                            <div id="urlDiv" style="display: @(Model.ImageOption == "url" ? "block" : "none");">
+                                <input asp-for="ImageUrl" class="form-control" placeholder="Nhập URL hình ảnh (http://... hoặc https://...)" />
+                                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                            </div>
                         </div>
 
                         <div class="form-group mb-3">
@@ -92,4 +136,72 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+
+    <script>
+        function toggleImageInput() {
+            const uploadOption = document.getElementById('uploadOption');
+            const urlOption = document.getElementById('urlOption');
+            const uploadDiv = document.getElementById('uploadDiv');
+            const urlDiv = document.getElementById('urlDiv');
+
+            if (uploadOption.checked) {
+                uploadDiv.style.display = 'block';
+                urlDiv.style.display = 'none';
+                // Clear URL input
+                document.querySelector('input[name="ImageUrl"]').value = '';
+            } else if (urlOption.checked) {
+                uploadDiv.style.display = 'none';
+                urlDiv.style.display = 'block';
+                // Clear file input
+                document.querySelector('input[name="ImageFile"]').value = '';
+            }
+        }
+
+        // Preview image khi chọn file
+        document.querySelector('input[name="ImageFile"]').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    // Tạo preview image
+                    let preview = document.getElementById('imagePreview');
+                    if (!preview) {
+                        preview = document.createElement('img');
+                        preview.id = 'imagePreview';
+                        preview.style.maxWidth = '200px';
+                        preview.style.maxHeight = '150px';
+                        preview.style.marginTop = '10px';
+                        preview.className = 'img-thumbnail';
+                        document.getElementById('uploadDiv').appendChild(preview);
+                    }
+                    preview.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Preview image khi nhập URL
+        document.querySelector('input[name="ImageUrl"]').addEventListener('input', function(e) {
+            const url = e.target.value;
+            if (url) {
+                let preview = document.getElementById('urlPreview');
+                if (!preview) {
+                    preview = document.createElement('img');
+                    preview.id = 'urlPreview';
+                    preview.style.maxWidth = '200px';
+                    preview.style.maxHeight = '150px';
+                    preview.style.marginTop = '10px';
+                    preview.className = 'img-thumbnail';
+                    document.getElementById('urlDiv').appendChild(preview);
+                }
+                preview.src = url;
+                preview.onerror = function() {
+                    this.style.display = 'none';
+                };
+                preview.onload = function() {
+                    this.style.display = 'block';
+                };
+            }
+        });
+    </script>
 }
